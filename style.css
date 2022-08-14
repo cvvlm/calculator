@@ -13,17 +13,17 @@ body {
   background: #6c757d;
 }
 
-.kalkulator {
+.calculator {
   margin: 25px;
   display: grid;
   justify-content: center;
   align-content: center;
   min-height: 70vh;
-  grid-template-columns: repeat(5, 80px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(4, 80px);
   min-height: 70vh;
 }
-.wynik {
+.result {
     grid-column: 1 / -1;
     background-color: #333533;
     display: flex;
@@ -35,12 +35,8 @@ body {
     word-wrap: break-word;
     word-break: break-all;
 }
-.poprzednie-dzialanie {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, .8);
-}
-.aktualne-dzialanie {
+
+.calculation {
   font-size: 30px;
 }
 
@@ -53,11 +49,7 @@ button {
 button:hover, button:focus {
   background: rgba(36, 36, 35, .95);
 }
-
-.col-dwa {
-  grid-column: span 2;
-
-}
-.row-dwa {
-  grid-row: span 2;
+.rownosc {
+  width: 160px;
+  height: 80px;
 }

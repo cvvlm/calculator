@@ -1,49 +1,43 @@
-const liczby = document.querySelectorAll('.liczba')
+const wyczysc = document.querySelector('.wyczysc')
+const minus = document.querySelector(".minus")
 const operator = document.querySelectorAll('.operator')
+const liczby = document.querySelectorAll('.liczba')
 const rownosc = document.querySelector('.rownosc')
-const usun = document.querySelector('.usun')
-const wyczysc = document.querySelectorAll('.wyczysc')
-const wynikPoprz = document.querySelector('.poprzednie-dzialanie')
-const wynikAktual = document.querySelector('.aktualne-dzialanie')
+const calculation = document.querySelector('.calculation')
 
-var aktualDzialanie = ''
-var poprzDzialanie = ''
-var operacja = undefined
+poprzednieDzialanie = ''
+aktualneDzialanie = ''
 
-const zaktualizujWynik = () => {
-    wynikAktual.innerText = aktualDzialanie
-    wynikPoprz.innerText = poprzDzialanie
+const zaktualizujWynik = function() {
+    
+    calculation.innerText = aktualneDzialanie
 }
 
-const dodajLiczbe = (liczba) => {
-    if (liczba === ".") {
-        if (aktualDzialanie.includes(".")) {
+const wpiszLiczbe = function(liczba) {
+    if(liczba === '.') {
+        if(aktualneDzialanie.includes('.')) {
             return
         }
     }
-    aktualDzialanie = aktualDzialanie.toString() + liczba.toString()
+    
+    aktualneDzialanie += liczba
 
 }
-const usunLiczbe = () => {
-    aktualDzialanie = aktualDzialanie.slice(0, -1)
+
+const usun = function() {
+    aktualneDzialanie = ''
+    poprzednieDzialanie = ''
 }
+
 
 
 liczby.forEach((liczba) => {
     liczba.addEventListener('click', () => {
-        dodajLiczbe(liczba.innerText)
+        wpiszLiczbe(liczba.innerText)
         zaktualizujWynik()
     })
 })
-
-
-usun.addEventListener("click", () => {
-    usunLiczbe()
+wyczysc.addEventListener('click', () => {
+    usun()
     zaktualizujWynik()
-})
-
-operator.forEach((operator) => {
-    operator.addEventListener("click", () => {
-        
-    })
 })
