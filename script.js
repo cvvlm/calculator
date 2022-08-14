@@ -34,6 +34,10 @@ const oblicz = function() {
             dzialanie = poprzednie * aktualne
             break; 
         case '/':
+        if(aktualne === 0) {
+            usun()      
+            return
+        }
             dzialanie = poprzednie / aktualne
             break;  
         case '%':
@@ -51,8 +55,6 @@ const oblicz = function() {
 }
 
 const zaktualizujWynik = function() {
-
-    
     calculation.innerText = aktualneDzialanie
     if(operacja != null) {
 
@@ -89,6 +91,7 @@ const wybierzOperacje = function(operator) {
     operacja = operator
     poprzednieDzialanie = aktualneDzialanie
     aktualneDzialanie = ''
+    calculation.innerText = poprzednieDzialanie
     
 
 }
@@ -113,7 +116,7 @@ wyczysc.addEventListener('click', () => {
 operators.forEach((operator) => {
     operator.addEventListener('click', () => {
         wybierzOperacje(operator.innerText)
-        zaktualizujWynik()
+        
     })
 })
 
